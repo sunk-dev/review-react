@@ -16,20 +16,21 @@ React Fragement 태그
 const App = () => {
   //지출 항목에 대한 객체배열->손쉽게 관리 가능
   const expenses = [
+    //Date 월 지정시 '설정월 - 1'
     {
       title: '바나나나',
       price: 2000,
-      date: new Date(2023, 4, 23),
+      date: new Date(2023, 4-1, 23),
     },
     {
       title: '딸기',
       price: 5000,
-      date: new Date(2023, 6, 23),
+      date: new Date(2023, 6-1, 23),
     },
     {
       title: '오렌지',
       price: 7000,
-      date: new Date(2023, 4, 27),
+      date: new Date(2023, 4-1, 27),
     },
   ];
   return (
