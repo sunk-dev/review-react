@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 // css 로딩
 import './ExpenseItem.css';
 import ExpenseDate from './ExpenseDate';
-import Card from './UI/Card';
+import Card from '../UI/Card';
 // props = property의 약자
 //props는 객체-> 디스트럭쳐링 가능 {title,price,date}
 const ExpenseItem = ({ title, price: propsPrice, date }) => {

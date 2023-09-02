@@ -1,11 +1,10 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import ExpenseItem from './components/ExpenseItem';
 import AppItem from './AppItem'; //APPItem 컴포넌트 불러오기
-import ExpenseList from './components/ExpenseList';
+import ExpenseList from './components/Expenses/ExpenseList';
 import Hello from './Hello';
 import Card from './components/UI/Card';
+import NewExpense from './components/NewExpense/NewExpense';
 
 /* JSX 규칙
 여러개의 태그를 사용하려면 그것들을 하나의 루트로 감싸야 함.
@@ -39,6 +38,7 @@ const App = () => {
   console.log('App실행');
   return (
     <>
+    <NewExpense/>
       <ExpenseList items={expenses}></ExpenseList>
       <Card>
       <Hello>
