@@ -22,15 +22,26 @@ const ExpenseItem = ({ title, price: propsPrice, date }) => {
   //숫자를 원화 표기법으로 바꾸기
   const formattedPrice = new Intl.NumberFormat('ko-KR').format(propsPrice);
 
+  const clickHandler=e=>{
+    console.log(`버튼 클릭!`);
+    console.log(e.target);
+  }//document.getElementById사용시 태그가 안그려져서 가져올수 없음.
+  // onClick={clickHandler} onClick-> props
+  // //  버튼 가져오기
+  // const $btn=document.getElementById('btn');
+  // console.log($btn);
+  // $btn.addEventListener('click',clickHandler);
   return (
-    <Card className='circle'>
-    <div className="expense-item">
+    <Card className='expense-item'>
+  
       <ExpenseDate date={date}/>
       <div className="expense-item__description">
         <h2>{title}</h2>
         <div className="expense-item__price">{formattedPrice}원</div>
       </div>
-    </div>
+      <button id='btn' onClick={clickHandler}>수정</button>
+      <button id='btn' onClick={e=>{console.log(`삭제!`);}}>삭제</button>
+    
     </Card>
   );
 };
