@@ -34,9 +34,9 @@ const ExpenseForm = () => {
     price='';
     date='';*/
     // 입력창 리셋
-    setTitle('');
-    setPrice('');
-    setDate('');
+    setTitle('aa');
+    setPrice('bb');
+    setDate('cc');
 
   }
   return (
