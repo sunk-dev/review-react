@@ -3,6 +3,9 @@ import logo from './logo.svg';
 import './App.css';
 import ExpenseItem from './components/ExpenseItem';
 import AppItem from './AppItem'; //APPItem 컴포넌트 불러오기
+import ExpenseList from './components/ExpenseList';
+import Hello from './Hello';
+import Card from './components/UI/Card';
 
 /* JSX 규칙
 여러개의 태그를 사용하려면 그것들을 하나의 루트로 감싸야 함.
@@ -20,36 +23,31 @@ const App = () => {
     {
       title: '바나나나',
       price: 2000,
-      date: new Date(2023, 4-1, 23),
+      date: new Date(2023, 4 - 1, 23),
     },
     {
       title: '딸기',
       price: 5000,
-      date: new Date(2023, 6-1, 23),
+      date: new Date(2023, 6 - 1, 23),
     },
     {
       title: '오렌지',
       price: 7000,
-      date: new Date(2023, 4-1, 27),
+      date: new Date(2023, 4 - 1, 27),
     },
   ];
   return (
     <>
-      <ExpenseItem
-        title={expenses[0].title}
-        price={expenses[0].price}
-        date={expenses[0].date}
-      />
-      <ExpenseItem
-        title={expenses[1].title}
-        price={expenses[1].price}
-        date={expenses[1].date}
-      />
-      <ExpenseItem
-        title={expenses[2].title}
-        price={expenses[2].price}
-        date={expenses[2].date}
-      />
+      <ExpenseList items={expenses}></ExpenseList>
+      <Card>
+      <Hello>
+        <ul>
+          <li>사과</li>
+          <li>포도</li>
+          <li>복숭아</li>
+        </ul>
+      </Hello>
+      </Card>
     </>
   );
 };
