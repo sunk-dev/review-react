@@ -2,31 +2,40 @@ import React,{useState} from 'react';
 import './ExpenseForm.css';
 const ExpenseForm = () => {
 
-  let [title,setTitle]=useState('');
-  let [price,setPrice]=useState('');
-  let [date,setDate]=useState('');
+  let [userInput,setUserInput]=useState({
+    title:'',
+    price:'',
+    date:''
+  });
+  //setter 로 객체 수정시 새로운 객체를 넣어야함
+  // 기존객체를 유지하고 싶으면 ...예전객체명 을 해서 복사한후 일부만 수정가능
   const titleChangeHandler = (e) => {
-    setTitle(e.target.value);
+    setUserInput({
+      ...userInput,
+      title:e.target.value
+    });//객체가 들어오지 않으면 에러남
     console.log(e.target.value);
   };
   const priceChangeHandler = (e) => {
-    setPrice(e.target.value);
+    setUserInput({
+      ...userInput, //기존의 UserInput복사
+      price:e.target.value//price 값만 변경
+    })
     console.log(e.target.value);
   };
   const dateChangeHandler = (e) => {
-    setDate(e.target.value);
+    setUserInput({
+      ...userInput,
+      date:e.target.value
+    })
     console.log(e.target.value);
   };
 
   const formSubmithandler=e=>{
     e.preventDefault();
     console.log(`submit 버튼 누름`);
-    const newExpense={
-      title,
-      price,
-      date
-    };
-    console.log(newExpense);
+
+    console.log(userInput);
     /* 
     입력창 리셋 아래 방식으로 불가
     일반변수는 랜더링반영 불가 => useState(상태변수 사용하기)!
@@ -34,9 +43,12 @@ const ExpenseForm = () => {
     price='';
     date='';*/
     // 입력창 리셋
-    setTitle('aa');
-    setPrice('bb');
-    setDate('cc');
+    setUserInput({
+      title:'',
+      price:'',
+      date:''
+    })
+   
 
   }
   return (
@@ -47,7 +59,7 @@ const ExpenseForm = () => {
           <input
             type="text"
             onChange={titleChangeHandler}
-            value={title}
+            value={userInput.title}
           />
         </div>
         <div className="new-expense__control">
@@ -57,7 +69,7 @@ const ExpenseForm = () => {
             min="100"
             step="100"
             onChange={priceChangeHandler}
-            value={price}
+            value={userInput.price}
           />
         </div>
         <div className="new-expense__control">
@@ -67,7 +79,7 @@ const ExpenseForm = () => {
             min="2019-01-01"
             max="2025-12-31"
             onChange={dateChangeHandler}
-            value={date}
+            value={userInput.date}
           />
         </div>
       </div>
